@@ -1,0 +1,9 @@
+The following CSS code snippet demonstrates an uncommon error where using a pseudo-element selector inside a media query doesn't work as expected. The issue is the pseudo-element selectors are not being applied within the specific media query breakpoint. 
+```css
+@media (max-width: 768px) {
+  .container::before {
+    content: "Mobile";
+  }
+}
+```
+This might happen because of specificity issues or CSS cascade behaviour within the media query context.
