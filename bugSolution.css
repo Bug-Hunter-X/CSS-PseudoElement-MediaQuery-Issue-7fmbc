@@ -1,0 +1,28 @@
+The solution involves ensuring sufficient specificity to override existing styles or potential conflicts and proper ordering within the stylesheet.
+
+One approach is to increase the specificity of the media query selector:
+```css
+@media (max-width: 768px) {
+  .container {
+    position: relative; /* Ensure positioning for pseudo-element */
+  }
+  .container::before {
+    content: "Mobile";
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+```
+Another approach is to explicitly set important properties or add a more specific class name:
+```css
+@media (max-width: 768px) {
+  .container.mobile::before {
+    content: "Mobile";
+    position: absolute; /* Ensure positioning for pseudo-element */
+    top: 0;
+    left: 0;
+  }
+}
+```
+It's also crucial to inspect the entire CSS for conflicting styles that might override the media query styles. Using your browser's developer tools to inspect the element and its styles is highly recommended for debugging CSS issues.
